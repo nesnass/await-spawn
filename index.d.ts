@@ -15,7 +15,7 @@ type StdioPipe = undefined | null | StdioPipeNamed;
 type Stdout = "" | BufferList;
 type Stderr = "" | BufferList;
 
-interface AsyncSpawnPromise extends Promise {
+export interface AsyncSpawnPromise extends Promise {
   child: ChildProcess | ChildProcessByStdio | ChildProcessWithoutNullStreams;
 }
 
