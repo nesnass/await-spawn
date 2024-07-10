@@ -1,12 +1,12 @@
 import {
   ChildProcess,
-  AsyncSpawnPromiseByStdio,
-  AsyncSpawnPromiseWithoutNullStreams,
+  ChildProcessByStdio,
+  ChildProcessWithoutNullStreams,
   SpawnOptions,
   SpawnOptionsWithoutStdio,
   SpawnOptionsWithStdioTuple,
 } from "child_process";
-import { Readable, Stream, Writable } from "stream";
+import { Stream } from "stream";
 
 type StdioNull = "inherit" | "ignore" | Stream;
 type StdioPipeNamed = "pipe" | "overlapped";
@@ -15,16 +15,11 @@ type StdioPipe = undefined | null | StdioPipeNamed;
 type Stdout = "" | BufferList;
 type Stderr = "" | BufferList;
 
-type AsyncSpawnError = Error & { stderr: Stderr; stdout: Stdout };
-interface AsyncSpawnPromiseWithoutNullStreams extends Promise {
-  child: AsyncSpawnPromiseWithoutNullStreams;
-}
-interface AsyncSpawnPromiseByStdio extends Promise {
-  child: AsyncSpawnPromiseByStdio;
-}
 interface AsyncSpawnPromise extends Promise {
-  child: ChildProcess;
+  child: ChildProcess | ChildProcessByStdio | ChildProcessWithoutNullStreams;
 }
+
+export type AsyncSpawnError = Error & { stderr: Stderr; stdout: Stdout };
 
 /**
  * Exposes a single function, which has the same api as child_process.spawn().
@@ -156,91 +151,91 @@ interface AsyncSpawnPromise extends Promise {
 export declare function spawn(
   command: string,
   options?: SpawnOptionsWithoutStdio
-): AsyncSpawnPromiseWithoutNullStreams;
+): AsyncSpawnPromise<Stdout>;
 export declare function spawn(
   command: string,
   options: SpawnOptionsWithStdioTuple<StdioPipe, StdioPipe, StdioPipe>
-): AsyncSpawnPromiseByStdio<Writable, Readable, Readable>;
+): AsyncSpawnPromise<Stdout>;
 export declare function spawn(
   command: string,
   options: SpawnOptionsWithStdioTuple<StdioPipe, StdioPipe, StdioNull>
-): AsyncSpawnPromiseByStdio<Writable, Readable, null>;
+): AsyncSpawnPromise<Stdout>;
 export declare function spawn(
   command: string,
   options: SpawnOptionsWithStdioTuple<StdioPipe, StdioNull, StdioPipe>
-): AsyncSpawnPromiseByStdio<Writable, null, Readable>;
+): AsyncSpawnPromise<Stdout>;
 export declare function spawn(
   command: string,
   options: SpawnOptionsWithStdioTuple<StdioNull, StdioPipe, StdioPipe>
-): AsyncSpawnPromiseByStdio<null, Readable, Readable>;
+): AsyncSpawnPromise<Stdout>;
 export declare function spawn(
   command: string,
   options: SpawnOptionsWithStdioTuple<StdioPipe, StdioNull, StdioNull>
-): AsyncSpawnPromiseByStdio<Writable, null, null>;
+): AsyncSpawnPromise<Stdout>;
 export declare function spawn(
   command: string,
   options: SpawnOptionsWithStdioTuple<StdioNull, StdioPipe, StdioNull>
-): AsyncSpawnPromiseByStdio<null, Readable, null>;
+): AsyncSpawnPromise<Stdout>;
 export declare function spawn(
   command: string,
   options: SpawnOptionsWithStdioTuple<StdioNull, StdioNull, StdioPipe>
-): AsyncSpawnPromiseByStdio<null, null, Readable>;
+): AsyncSpawnPromise<Stdout>;
 export declare function spawn(
   command: string,
   options: SpawnOptionsWithStdioTuple<StdioNull, StdioNull, StdioNull>
-): AsyncSpawnPromiseByStdio<null, null, null>;
+): AsyncSpawnPromise<Stdout>;
 export declare function spawn(
   command: string,
   options: SpawnOptions
-): AsyncSpawnPromise;
+): AsyncSpawnPromise<Stdout>;
 // overloads of spawn with 'args'
 export declare function spawn(
   command: string,
   args?: readonly string[],
   options?: SpawnOptionsWithoutStdio
-): AsyncSpawnPromiseWithoutNullStreams;
+): AsyncSpawnPromise<Stdout>;
 export declare function spawn(
   command: string,
   args: readonly string[],
   options: SpawnOptionsWithStdioTuple<StdioPipe, StdioPipe, StdioPipe>
-): AsyncSpawnPromiseByStdio<Writable, Readable, Readable>;
+): AsyncSpawnPromise<Stdout>;
 export declare function spawn(
   command: string,
   args: readonly string[],
   options: SpawnOptionsWithStdioTuple<StdioPipe, StdioPipe, StdioNull>
-): AsyncSpawnPromiseByStdio<Writable, Readable, null>;
+): AsyncSpawnPromise<Stdout>;
 export declare function spawn(
   command: string,
   args: readonly string[],
   options: SpawnOptionsWithStdioTuple<StdioPipe, StdioNull, StdioPipe>
-): AsyncSpawnPromiseByStdio<Writable, null, Readable>;
+): AsyncSpawnPromise<Stdout>;
 export declare function spawn(
   command: string,
   args: readonly string[],
   options: SpawnOptionsWithStdioTuple<StdioNull, StdioPipe, StdioPipe>
-): AsyncSpawnPromiseByStdio<null, Readable, Readable>;
+): AsyncSpawnPromise<Stdout>;
 export declare function spawn(
   command: string,
   args: readonly string[],
   options: SpawnOptionsWithStdioTuple<StdioPipe, StdioNull, StdioNull>
-): AsyncSpawnPromiseByStdio<Writable, null, null>;
+): AsyncSpawnPromise<Stdout>;
 export declare function spawn(
   command: string,
   args: readonly string[],
   options: SpawnOptionsWithStdioTuple<StdioNull, StdioPipe, StdioNull>
-): AsyncSpawnPromiseByStdio<null, Readable, null>;
+): AsyncSpawnPromise<Stdout>;
 export declare function spawn(
   command: string,
   args: readonly string[],
   options: SpawnOptionsWithStdioTuple<StdioNull, StdioNull, StdioPipe>
-): AsyncSpawnPromiseByStdio<null, null, Readable>;
+): AsyncSpawnPromise<Stdout>;
 export declare function spawn(
   command: string,
   args: readonly string[],
   options: SpawnOptionsWithStdioTuple<StdioNull, StdioNull, StdioNull>
-): AsyncSpawnPromiseByStdio<null, null, null>;
+): AsyncSpawnPromise<Stdout>;
 export declare function spawn(
   command: string,
   args: readonly string[],
   options: SpawnOptions
-): AsyncSpawnPromise;
+): AsyncSpawnPromise<Stdout>;
