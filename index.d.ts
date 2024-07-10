@@ -148,93 +148,93 @@ export type AsyncSpawnError = Error & { stderr: Stderr; stdout: Stdout };
  * @param command The command to run.
  * @param args List of string arguments.
  */
-export declare function spawn(
+export declare async function spawn(
   command: string,
   options?: SpawnOptionsWithoutStdio
 ): AsyncSpawnPromise<Stdout>;
-export declare function spawn(
+export declare async function spawn(
   command: string,
   options: SpawnOptionsWithStdioTuple<StdioPipe, StdioPipe, StdioPipe>
 ): AsyncSpawnPromise<Stdout>;
-export declare function spawn(
+export declare async function spawn(
   command: string,
   options: SpawnOptionsWithStdioTuple<StdioPipe, StdioPipe, StdioNull>
 ): AsyncSpawnPromise<Stdout>;
-export declare function spawn(
+export declare async function spawn(
   command: string,
   options: SpawnOptionsWithStdioTuple<StdioPipe, StdioNull, StdioPipe>
 ): AsyncSpawnPromise<Stdout>;
-export declare function spawn(
+export declare async function spawn(
   command: string,
   options: SpawnOptionsWithStdioTuple<StdioNull, StdioPipe, StdioPipe>
 ): AsyncSpawnPromise<Stdout>;
-export declare function spawn(
+export declare async function spawn(
   command: string,
   options: SpawnOptionsWithStdioTuple<StdioPipe, StdioNull, StdioNull>
 ): AsyncSpawnPromise<Stdout>;
-export declare function spawn(
+export declare async function spawn(
   command: string,
   options: SpawnOptionsWithStdioTuple<StdioNull, StdioPipe, StdioNull>
 ): AsyncSpawnPromise<Stdout>;
-export declare function spawn(
+export declare async function spawn(
   command: string,
   options: SpawnOptionsWithStdioTuple<StdioNull, StdioNull, StdioPipe>
 ): AsyncSpawnPromise<Stdout>;
-export declare function spawn(
+export declare async function spawn(
   command: string,
   options: SpawnOptionsWithStdioTuple<StdioNull, StdioNull, StdioNull>
 ): AsyncSpawnPromise<Stdout>;
-export declare function spawn(
+export declare async function spawn(
   command: string,
   options: SpawnOptions
 ): AsyncSpawnPromise<Stdout>;
 // overloads of spawn with 'args'
-export declare function spawn(
+export declare async function spawn(
   command: string,
   args?: readonly string[],
   options?: SpawnOptionsWithoutStdio
 ): AsyncSpawnPromise<Stdout>;
-export declare function spawn(
+export declare async function spawn(
   command: string,
   args: readonly string[],
   options: SpawnOptionsWithStdioTuple<StdioPipe, StdioPipe, StdioPipe>
 ): AsyncSpawnPromise<Stdout>;
-export declare function spawn(
+export declare async function spawn(
   command: string,
   args: readonly string[],
   options: SpawnOptionsWithStdioTuple<StdioPipe, StdioPipe, StdioNull>
 ): AsyncSpawnPromise<Stdout>;
-export declare function spawn(
+export declare async function spawn(
   command: string,
   args: readonly string[],
   options: SpawnOptionsWithStdioTuple<StdioPipe, StdioNull, StdioPipe>
 ): AsyncSpawnPromise<Stdout>;
-export declare function spawn(
+export declare async function spawn(
   command: string,
   args: readonly string[],
   options: SpawnOptionsWithStdioTuple<StdioNull, StdioPipe, StdioPipe>
 ): AsyncSpawnPromise<Stdout>;
-export declare function spawn(
+export declare async function spawn(
   command: string,
   args: readonly string[],
   options: SpawnOptionsWithStdioTuple<StdioPipe, StdioNull, StdioNull>
 ): AsyncSpawnPromise<Stdout>;
-export declare function spawn(
+export declare async function spawn(
   command: string,
   args: readonly string[],
   options: SpawnOptionsWithStdioTuple<StdioNull, StdioPipe, StdioNull>
 ): AsyncSpawnPromise<Stdout>;
-export declare function spawn(
+export declare async function spawn(
   command: string,
   args: readonly string[],
   options: SpawnOptionsWithStdioTuple<StdioNull, StdioNull, StdioPipe>
 ): AsyncSpawnPromise<Stdout>;
-export declare function spawn(
+export declare async function spawn(
   command: string,
   args: readonly string[],
   options: SpawnOptionsWithStdioTuple<StdioNull, StdioNull, StdioNull>
 ): AsyncSpawnPromise<Stdout>;
-export declare function spawn(
+export declare async function spawn(
   command: string,
   args: readonly string[],
   options: SpawnOptions
