@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "bl": "^4.0.3"
+    "@types/node": "^20.14.10",
+    "bl": "^6.0.14"
   },
   "devDependencies": {
-    "standard": "^14.0.2",
-    "tape": "^5.0.1"
+    "standard": "^17.1.0",
+    "tape": "^5.8.1"
   },
   "homepage": "https://github.com/ralphtheninja/await-spawn",
   "repository": {
@@ -24,6 +25,7 @@
     "spawn",
     "promise"
   ],
+  "types": "index.d.ts",
   "license": "MIT",
   "engines": {
     "node": ">=10"
